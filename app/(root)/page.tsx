@@ -27,7 +27,7 @@ const Home = () => {
             <RightSidebar
               user={loggedIn}
               transactions={[]}
-              banks={[{}, {}]}
+              banks={[{currentBalance: 1356.50}, {currentBalance: 10032.50}]}
             />
         </section>
     )
