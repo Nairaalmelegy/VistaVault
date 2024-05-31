@@ -38,7 +38,7 @@ export const signIn = async ({ email, password }: signInProps) => {
     const session = await account.createEmailPasswordSession(email, password);
 
     cookies().set("appwrite-session", session.secret, {
-      path: "/",
+      path: "/app",
       httpOnly: true,
       sameSite: "strict",
       secure: true,
@@ -89,7 +89,6 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
         dwollaCustomerUrl
       }
     )
-
     const session = await account.createEmailPasswordSession(email, password);
 
     cookies().set("appwrite-session", session.secret, {
@@ -110,12 +109,15 @@ export async function getLoggedInUser() {
     const { account } = await createSessionClient();
     const result = await account.get();
 
+    if (!result) {
+      // return a default user object with a dafault $id
+      return { $id: 'guest'};
+    }
     const user = await getUserInfo({ userId: result.$id})
-
     return parseStringify(user);
   } catch (error) {
     console.log(error)
-    return null;
+    return { $id: 'guest'}; // to return default value
   }
 }
 

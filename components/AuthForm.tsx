@@ -65,6 +65,7 @@ const AuthForm = ({ type }: { type: string }) => {
           const newUser = await signUp(userData);
 
           setUser(newUser);
+          
         }
 
         if(type === 'sign-in') {
@@ -92,7 +93,7 @@ const AuthForm = ({ type }: { type: string }) => {
               height={34}
               alt="Vista logo"
             />
-            <h1 className="text-26 font-ibm-plex-serif font-bold text-black-1">VistaVault</h1>
+            <h1 className="text-30 font-ibm-plex-serif font-bold text-black-1">VistaVault</h1>
           </Link>
 
           <div className="flex flex-col gap-1 md:gap-3">
@@ -152,6 +153,7 @@ const AuthForm = ({ type }: { type: string }) => {
                     </>
                   ) : type === 'sign-in' 
                     ? 'Sign In' : 'Sign Up'}
+                  
                 </Button>
               </div>
             </form>
@@ -163,7 +165,7 @@ const AuthForm = ({ type }: { type: string }) => {
               ? "Don't have an account?"
               : "Already have an account?"}
             </p>
-            <Link href={type === 'sign-in' ? '/sign-up' : '/sign-in'} className="form-link">
+            <Link href={type === 'sign_in' ? '/sign_up' : '/sign_in'} className="form-link">
               {type === 'sign-in' ? 'Sign up' : 'Sign in'}
             </Link>
           </footer>
