@@ -13,7 +13,7 @@ import { getBank, getBankByAccountId } from "@/lib/actions/user.actions";
 import { decryptId } from "@/lib/utils";
 
 import { BankDropdown } from "./BankDropdown";
-import { Button } from "./button";
+import { Button } from "./ui/button";
 import {
   Form,
   FormControl,
@@ -22,9 +22,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "./form";
-import { Input } from "./input";
-import { Textarea } from "./textarea";
+} from "./ui/form";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),

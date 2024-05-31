@@ -1,5 +1,5 @@
 "use server";
-// payment processor for transfering money
+
 import { Client } from "dwolla-v2";
 
 const getEnvironment = (): "production" | "sandbox" => {
